@@ -9,5 +9,5 @@ import retrofit2.http.Query
 interface MovieService {
 
     @GET(Constants.URL)
-    suspend fun getMovie(@Query("t") t: String) : Response<Movie>
+    suspend fun getMovie(@Query("apikey") apiKey:String, @Query("t") t: String) : Response<Movie>
 }
