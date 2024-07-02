@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bumptech.glide.Glide
 import com.example.cuteanimals.R
 import com.example.cuteanimals.databinding.ActivityMainBinding
 import com.manish.moviesearch.core.utils.UIState
@@ -57,7 +58,9 @@ class MainActivity : AppCompatActivity() {
                             binding.progress.visibility = View.GONE
                             binding.error.visibility = View.GONE
                             binding.title.visibility = View.VISIBLE
+                            binding.poster.visibility = View.VISIBLE
                             binding.title.text = it.data.Title
+                            Glide.with(binding.poster.context).load(it.data.Poster).into(binding.poster)
                         }
 
                         is UIState.Failure -> {
